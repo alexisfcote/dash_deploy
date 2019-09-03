@@ -1,3 +1,4 @@
+import os
 import plotly.express as px
 import plotly.graph_objects as go
 import flask
@@ -40,7 +41,8 @@ auth = dash_auth.BasicAuth(
     app,
     VALID_USERNAME_PASSWORD_PAIRS
 )
-
+server = app.server
+server.secret_key = os.environ.get('secretkey', 'xxxkljas912lkjda09sdj1209fsd9')
 
 app.layout = html.Div(
     [
